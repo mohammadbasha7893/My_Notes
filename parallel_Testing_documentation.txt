@@ -1,0 +1,55 @@
+Agar class ke andar sare methods ko chalana ho to ye use karo
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite"  >
+  <test name="Test" thread-count="10" parallel="methods">
+
+ <parameter name ="os" value ="windows"/>
+ <parameter name ="browser" value ="chrome"/>
+ 
+
+    <classes>
+ 
+         
+           <class name="testCases.TC001_AccountRegistrationTest"/> 
+            
+  </classes>  
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+
+Note : Is framework me extra chrome bhi chalega kuki BaseclassExtend Horai hai har test ke lie
+
+
+
+------------------------------------------------------------------------------------------------------
+
+DataProvider wale ko parallel me then , parallel=true; phle dedo thik(below xml will run all dataprovider methods and class both run in parallel ,but other
+class inside method will not run in parallel)
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite"  data-provider-thread-count="5">
+  <test name="Test" thread-count="5" parallel="classes">
+
+ <parameter name ="os" value ="windows"/>
+ <parameter name ="browser" value ="chrome"/>
+ 
+
+    <classes>
+ 
+            <class name="testCases.TC003_LoginDDT"/> 
+           <class name="testCases.TC001_AccountRegistrationTest"/> 
+            
+  </classes>  
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+
+
+
+
+
+
+
+
+
